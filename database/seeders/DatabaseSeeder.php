@@ -2,21 +2,23 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Pasien;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Pasien::truncate();
+        $faker = \Faker\Factory::create();
+        for ($i = 0; $i < 10; $i++) {
+            Pasien::create([
+                'nama_pasien' => $faker->lastName,
+                'jenis_kelamin' => $faker->randomElement(['pria','wanita']),
+                'waktu_masuk' => $faker->dateTimeBetween('-1 week','+1 week'),
+                'poli' => $faker->randomElement(['anak','gigi','umum']),
+            ]);
+        }
     }
 }
