@@ -22,3 +22,9 @@ Route::post('pasien', [App\Http\Controllers\PasienController::class, 'store']);
 Route::get('pasien/{id_pasien}', [App\Http\Controllers\PasienController::class, 'show']);
 Route::put('pasien/{id_pasien}', [App\Http\Controllers\PasienController::class, 'update']);
 Route::delete('pasien/{id_pasien}', [App\Http\Controllers\PasienController::class, 'delete']);
+
+Route::get('rm', [App\Http\Controllers\RMController::class, 'index']);
+Route::post('rm', [App\Http\Controllers\RMController::class, 'store']);
+Route::get('rm/{id_rm}', [App\Http\Controllers\RMController::class, 'show']);
+Route::put('rm/{id_rm}', [App\Http\Controllers\RMController::class, 'update']);
+Route::delete('rm/{id_rm}', [App\Http\Controllers\RMController::class, 'delete']);
