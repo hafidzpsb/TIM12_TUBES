@@ -28,3 +28,9 @@ Route::post('rm', [App\Http\Controllers\RMController::class, 'store']);
 Route::get('rm/{id_rm}', [App\Http\Controllers\RMController::class, 'show']);
 Route::put('rm/{id_rm}', [App\Http\Controllers\RMController::class, 'update']);
 Route::delete('rm/{id_rm}', [App\Http\Controllers\RMController::class, 'delete']);
+
+Route::get('konsul', [App\Http\Controllers\KonsultasiController::class, 'index']);
+Route::post('konsul', [App\Http\Controllers\KonsultasiController::class, 'store']);
+Route::get('konsul/{id_konsul}', [App\Http\Controllers\KonsultasiController::class, 'show']);
+Route::put('konsul/{id_konsul}', [App\Http\Controllers\KonsultasiController::class, 'update']);
+Route::delete('konsul/{id_konsul}', [App\Http\Controllers\KonsultasiController::class, 'delete']);

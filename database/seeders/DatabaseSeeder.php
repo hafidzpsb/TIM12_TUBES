@@ -10,7 +10,6 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        Pasien::truncate();
         $faker = \Faker\Factory::create();
         for ($i = 0; $i < 10; $i++) {
             Pasien::create([

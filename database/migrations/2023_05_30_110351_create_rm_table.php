@@ -10,6 +10,8 @@ return new class extends Migration
     {
         Schema::create('rm', function (Blueprint $table) {
             $table->id('id_rm');
+            $table->unsignedBigInteger('id_pasien');
+            $table->foreign('id_pasien')->references('id_pasien')->on('pasien');
             $table->integer('tinggi_badan');
             $table->integer('berat_badan');
             $table->integer('tekanan_darah');
