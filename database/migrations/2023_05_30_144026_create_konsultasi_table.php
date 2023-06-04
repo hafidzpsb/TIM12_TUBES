@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('konsultasi', function (Blueprint $table) {
             $table->id('id_konsul');
             $table->unsignedBigInteger('id_pasien');
-            $table->foreign('id_pasien')->references('id_pasien')->on('rm')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_pasien')->references('id_pasien')->on('rm');
             $table->string('dokter_pj');
             $table->string('hasil_diagnosis');
             $table->string('tindakan_medis');
