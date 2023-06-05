@@ -16,4 +16,8 @@ class Pasien extends Model
     {
         return $this->hasMany(RM::class);
     }
+    public function resep(): HasMany
+    {
+        return $this->hasMany(Resep::class);
+    }
 }

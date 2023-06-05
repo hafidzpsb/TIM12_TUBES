@@ -34,3 +34,9 @@ Route::post('konsul', [App\Http\Controllers\KonsultasiController::class, 'store'
 Route::get('konsul/{id_konsul}', [App\Http\Controllers\KonsultasiController::class, 'show']);
 Route::put('konsul/{id_konsul}', [App\Http\Controllers\KonsultasiController::class, 'update']);
 Route::delete('konsul/{id_konsul}', [App\Http\Controllers\KonsultasiController::class, 'delete']);
+
+Route::get('resep', [App\Http\Controllers\ResepController::class, 'index']);
+Route::post('resep', [App\Http\Controllers\ResepController::class, 'store']);
+Route::get('resep/{id_resep}', [App\Http\Controllers\ResepController::class, 'show']);
+Route::put('resep/{id_resep}', [App\Http\Controllers\ResepController::class, 'update']);
+Route::delete('resep/{id_resep}', [App\Http\Controllers\ResepController::class, 'delete']);
