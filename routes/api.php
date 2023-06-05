@@ -40,3 +40,9 @@ Route::post('resep', [App\Http\Controllers\ResepController::class, 'store']);
 Route::get('resep/{id_resep}', [App\Http\Controllers\ResepController::class, 'show']);
 Route::put('resep/{id_resep}', [App\Http\Controllers\ResepController::class, 'update']);
 Route::delete('resep/{id_resep}', [App\Http\Controllers\ResepController::class, 'delete']);
+
+Route::get('rujuk', [App\Http\Controllers\RujukanController::class, 'index']);
+Route::post('rujuk', [App\Http\Controllers\RujukanController::class, 'store']);
+Route::get('rujuk/{id_rujuk}', [App\Http\Controllers\RujukanController::class, 'show']);
+Route::put('rujuk/{id_rujuk}', [App\Http\Controllers\RujukanController::class, 'update']);
+Route::delete('rujuk/{id_rujuk}', [App\Http\Controllers\RujukanController::class, 'delete']);
