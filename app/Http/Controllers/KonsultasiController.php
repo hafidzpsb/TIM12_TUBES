@@ -11,21 +11,31 @@ class KonsultasiController extends Controller
     public function index()
     {
         if (Konsultasi::exists()){
-            echo '200 | OK.';
-            return Konsultasi::all();
+            return response()->json([
+                'message' => '200 | OK.',
+                'response' => Konsultasi::with(['rm:id_rm,id_pasien,keluhan' => ['pasien:id_pasien,nama_pasien']])->get()
+            ]);
         }
-        else {
-            echo '404 | Not found.'; 
+        else{
+            return response()->json([
+                'message' => '404 | Not found.'
+            ]);
         }
     }
     public function show($id_konsul)
     {
         if (Konsultasi::find($id_konsul)){
-            echo '200 | OK.';
-            return Konsultasi::find($id_konsul);
+            return response()->json([
+                'message' => '200 | OK.',
+                'response' => Konsultasi::find($id_konsul),
+                'nama_pasien' => Konsultasi::find($id_konsul)->rm->keluhan,
+                'dokter_pj' => Konsultasi::find($id_konsul)->rm->pasien->nama_pasien
+            ]);
         }
-        else {
-            echo '404 | Not found.';
+        else{
+            return response()->json([
+                'message' => '404 | Not found.'
+            ]);
         }
     }
     public function store(Request $request)
@@ -36,12 +46,16 @@ class KonsultasiController extends Controller
             'hasil_diagnosis' => 'required|string',
             'tindakan_medis' => 'required|string',
         ]);
-        if ($validator->fails()) {
-            echo '204 | No Content.';
+        if ($validator->fails()){
+            return response()->json([
+                'message' => '204 | No Content.'
+            ]);
         }
-        else {
-            echo "200 | OK.";
-            return Konsultasi::create($request->all());
+        else{
+            return response()->json([
+                'message' => '200 | OK.',
+                'response' => Konsultasi::create($request->all())
+            ]);
         }
     }
     public function update(Request $request, $id_konsul)
@@ -52,29 +66,39 @@ class KonsultasiController extends Controller
                 'hasil_diagnosis' => 'required|string',
                 'tindakan_medis' => 'required|string',
             ]);
-            if ($validator->fails()) {
-                echo '204 | No Content.';
+            if ($validator->fails()){
+                return response([
+                    'message' => '204 | No Content.'
+                ]);
             }
-            else {
-                echo "200 | OK.";
+            else{
                 $konsultasi = Konsultasi::find($id_konsul);
                 $konsultasi -> update($request->all());
-                return $konsultasi;
+                return response()->json([
+                    'message' => '200 | OK.',
+                    'response' => $konsultasi
+                ]);
             }
         }
-        else {
-            echo '404 | Not found.';
+        else{
+            return response()->json([
+                'message' => '404 | Not found.'
+            ]);
         }
     }
     public function delete(Request $request, $id_konsul)
     {
         if (Konsultasi::find($id_konsul)){
-            echo "200 | OK.";
             $konsultasi = Konsultasi::find($id_konsul);
             $konsultasi -> delete();
+            return response()->json([
+                'message' => '200 | OK.'
+            ]);
         }
-        else {
-            echo '404 | Not found.';
+        else{
+            return response()->json([
+                'message' => '404 | Not found.'
+            ]);
         }
     }
 }

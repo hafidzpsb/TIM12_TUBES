@@ -20,4 +20,12 @@ class Pasien extends Model
     {
         return $this->hasMany(Resep::class);
     }
+    public function rujukan(): HasMany
+    {
+        return $this->hasMany(Rujukan::class);
+    }
+    public function operasi(): HasMany
+    {
+        return $this->hasMany(Operasi::class);
+    }
 }

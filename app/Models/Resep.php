@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Resep extends Model
 {
@@ -15,5 +16,8 @@ class Resep extends Model
     {
         return $this->belongsTo(Pasien::class, 'id_pasien', 'id_pasien');
     }
-    
+    public function konsultasi(): BelongsTo
+    {
+        return $this->belongsTo(Konsultasi::class, 'id_konsul', 'id_konsul');
+    }   
 }

@@ -13,12 +13,12 @@ class RM extends Model
     protected $fillable = ['id_pasien', 'nama_pasien', 'tinggi_badan', 'berat_badan', 'tekanan_darah', 'detak_jantung', 'frekuensi_pernapasan', 'suhu', 'keluhan'];
     protected $primaryKey = 'id_rm';
     protected $table = 'rm';
-    public function pasien_nama(): BelongsTo
+    public function pasien(): BelongsTo
     {
         return $this->belongsTo(Pasien::class, 'id_pasien', 'id_pasien');
     }
     public function konsultasi(): HasOne
     {
-        return $this->belongsTo(Konsultasi::class, 'id_pasien', 'id_pasien');
+        return $this->hasOne(Konsultasi::class);
     }
 }
