@@ -17,7 +17,7 @@
 #### Contoh
 
 ```http
-  GET /api/poliklinik/pasien
+http://127.0.0.1:8000/api/poliklinik/pasien
 ```
 
 | Parameter                 | Method   | Description                |
