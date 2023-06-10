@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
                 'nama_pasien' => $faker->lastName,
                 'jenis_kelamin' => $faker->randomElement(['pria','wanita']),
                 'waktu_masuk' => $faker->dateTimeBetween('-1 week','+1 week'),
-                'poli' => $faker->randomElement(['gigi','umum']),
+                'poli' => $faker->randomElement(['gigi','umum','gizi','penyakit dalam','obgyn']),
             ]);
         }
         $id_pasiens = Pasien::pluck('id_pasien');
