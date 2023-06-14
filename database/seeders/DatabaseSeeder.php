@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         Schema::dropIfExists('personal_access_tokens');
         Schema::dropIfExists('users');
         $faker = \Faker\Factory::create();
-        $j = 20; #Ganti ke angka lain untuk nambahin atau kurangin jumlah record 
+        $j = 10; #Ganti ke angka lain untuk nambahin atau kurangin jumlah record 
         for ($i = 0; $i < $j; $i++) {
             Pasien::create([
                 'nama_pasien' => $faker->lastName,

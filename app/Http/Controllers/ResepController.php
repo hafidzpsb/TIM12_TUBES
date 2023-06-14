@@ -11,7 +11,11 @@ class ResepController extends Controller
     {
         if (Resep::all()->isNotEmpty())
         {
-            return Resep::all();
+            return response()->json([
+                'status' => 200,
+                'message' => 'berhasil',
+                'response' => Resep::all()
+            ]);
         } 
         else 
         {

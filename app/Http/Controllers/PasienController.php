@@ -11,7 +11,11 @@ class PasienController extends Controller
     {
         if  (Pasien::all()->isNotEmpty())
         {
-            return Pasien::all();
+            return response()->json([
+                'status' => 200,
+                'message' => 'berhasil',
+                'data' => Pasien::all()
+            ]);
         }
         else
         {
